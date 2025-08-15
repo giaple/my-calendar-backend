@@ -6,7 +6,10 @@ interface EventsMap {
 }
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: "*", // or your frontend URL for more security
+  methods: ["GET", "POST"],
+}));
 app.use(express.json());
 
 let events: EventsMap = {};
